@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset ="utf-8">
+    <title>ファーストツール（株）</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+    <div class="header">
+      <img src="/ft.png">
+      <div class="header-logo">ファーストツール（株）</div>
+
+      <div class="header-list">
+        <ul>
+          <a href="/">ホーム</a>
+          <a href="about">会社概要</a>
+          <a href="contents">業務内容</a>
+          <a href="#">社員ログイン</a>
+        </ul>
+      </div>
+    </div>
+    </header>
+
+    <div class="main">
+        <div class="copy-container">
+          <h1 >Fast Tool Corporation</h1>
+          <h2>超硬オリジナルTools数種類の工具を一本化！短納期にお答え致します</h2>
+        </div>
+    </div>
+
+
+    <%= yield %>
+  </body>
+</html>
