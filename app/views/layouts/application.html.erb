@@ -11,6 +11,38 @@
   </head>
 
   <body>
+    <header>
+    <div class="header">
+      <img src="/ft.png">
+      <div class="header-logo">ファーストツール（株）</div>
+
+      <div class="header-list">
+        <ul>
+          <%= link_to("ホーム","/") %>
+          <%= link_to("会社概要","about") %>
+          <%= link_to("業務内容","contents") %>
+          <%= link_to("社員ログイン","posts/index") %>
+          <%= link_to("ユーザー一覧","users/index") %>
+          <%= link_to("新規登録", "signup") %>
+        </ul>
+      </div>
+    </div>
+    </header>
+
+      <div class="main1">
+        <div class="copy-container">
+          <h1 >Fast Tool Corporation</h1>
+          <h2>超硬オリジナルTools数種類の工具を一本化！短納期にお答え致します</h2>
+        </div>
+      </div>
+
+      <!-- flash[:notice]に代入されたメッセージを表示してください -->
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
