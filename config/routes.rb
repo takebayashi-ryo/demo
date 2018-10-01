@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  post "logout" => "users#logout"
+  #ログインフォームから送信された値
+  post "login" => "users#login"
+  #ログインページへのルーティング
+  get "login"  => "users#login_form"
   #updateアクションへのルーティング
   post "users/:id/update" => "users#update"
   #editアクションへのルーティング

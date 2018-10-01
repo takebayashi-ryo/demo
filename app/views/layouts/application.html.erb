@@ -16,16 +16,45 @@
       <img src="/ft.png">
       <div class="header-logo">ファーストツール（株）</div>
 
-      <div class="header-list">
-        <ul>
-          <%= link_to("ホーム","/") %>
-          <%= link_to("会社概要","about") %>
-          <%= link_to("業務内容","contents") %>
-          <%= link_to("社員ログイン","posts/index") %>
+      <ul class="header-menus">
+
+      <% if @current_user %>
+          <li>
+          <%= link_to(@current_user.name,"/users/#{@current_user.id}") %>
+          </li>
+ <!-- ログインしている状態でヘッダーに表示するHTML -->
+
+        <li>
+          <%= link_to("社員コメント","posts/index") %>
+        </li>
+        <li>
           <%= link_to("ユーザー一覧","users/index") %>
-          <%= link_to("新規登録", "signup") %>
-        </ul>
+        </li>
+        <li>
+          <%= link_to("新規投稿", "/posts/new") %>
+        </li>
+        
+        <li>
+          <%= link_to("ログアウト", "/logout", {method: :post}) %>
+        </li>
+
+      <% else %>
+         <!-- Log Inしていない状態でヘッダーに表示するHTMLを貼り付けてください -->
+         <li>
+         <%= link_to("ホーム","/") %>
+        </li>
+        <li>
+         <%= link_to("会社概要","about") %>
+        </li>
+        <li>
+         <%= link_to("業務内容","contents") %>
+        </li>
+        <li>
+         <%= link_to("社員ログイン","/login") %>
+        </li>
+        <% end %>
       </div>
+    </ul>
     </div>
     </header>
 
@@ -36,7 +65,6 @@
         </div>
       </div>
 
-      <!-- flash[:notice]に代入されたメッセージを表示してください -->
     <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
